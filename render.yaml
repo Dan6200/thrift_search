@@ -1,14 +1,12 @@
 services:
   - type: web
     name: meilisearch
-    env: docker
+    runtime: docker
     dockerfilePath: ./meilisearch/Dockerfile
-    ports:
-      - 7700
+    domains:
+      - thrift-search.render.com
 
   - type: worker
     name: populate-search
-    env: docker
+    runtime: docker
     dockerfilePath: ./populate-search/Dockerfile
-    depends_on:
-      - meilisearch

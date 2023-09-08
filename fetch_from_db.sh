@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PGPASSWORD=PiFgClvqzJwMRJjHCW8BHyxn6I7kwSEt psql -h dpg-cjbeb7c5kgrc739bmhu0-a.frankfurt-postgres.render.com -U dan thrift_db -t -A -o 'products.json' -c \
+PGPASSWORD=PiFgClvqzJwMRJjHCW8BHyxn6I7kwSEt psql -h dpg-cjbeb7c5kgrc739bmhu0-a.frankfurt-postgres.render.com -U dan thrift_db -t -A -o '/opt/src/products.json' -c \
 "select json_agg (product_data) from (
         select p.*,
         (select json_agg(media_data) from

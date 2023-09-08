@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: meilisearch
+    env: docker
+    dockerfilePath: ./meilisearch/Dockerfile
+    ports:
+      - 7700
+
+  - type: worker
+    name: populate-search
+    env: docker
+    dockerfilePath: ./populate-search/Dockerfile
+    depends_on:
+      - meilisearch

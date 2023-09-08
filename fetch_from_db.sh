@@ -9,4 +9,4 @@ PGPASSWORD=PiFgClvqzJwMRJjHCW8BHyxn6I7kwSEt psql -h dpg-cjbeb7c5kgrc739bmhu0-a.f
                 as media, c.category_name, s.subcategory_name
                 from products p join categories c using (category_id)
                 join subcategories s using (category_id)
-) as product_data"
+) as product_data" 2> error.log

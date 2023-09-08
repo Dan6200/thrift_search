@@ -1,9 +1,10 @@
 FROM ubuntu:latest as builder
 RUN apt-get update && apt-get install -y postgresql-client curl
+RUN ls /
 COPY ./fetch_from_db.sh /opt/src/fetch_from_db.sh
 RUN /opt/src/fetch_from_db.sh
-RUN cat /opt/src/error.log
 RUN ls /opt/src/
+RUN cat /opt/src/error.log
 
 FROM getmeili/meilisearch:latest
 COPY --from=builder /opt/src/products.json /opt/src/products.json

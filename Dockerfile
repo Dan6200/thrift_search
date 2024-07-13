@@ -30,6 +30,3 @@ RUN chmod +x /opt/src/entrypoint.sh
 
 # Use the entrypoint script to start MeiliSearch and then run scripts
 ENTRYPOINT ["/opt/src/entrypoint.sh"]
-
-# Default command for MeiliSearch
-CMD ["meilisearch"]

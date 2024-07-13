@@ -18,6 +18,7 @@ done
 echo "Waiting for Meilisearch to be populated..."
 sleep 3
 /opt/src/set_searchable_fields.sh
+cat /opt/src/products.json
 /opt/src/run_test.sh "acer"
 
 # Keep the container running

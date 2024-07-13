@@ -15,7 +15,8 @@ done
 
 # Run scripts
 /opt/src/populate_search.sh
-sleep 2
+echo "Waiting for Meilisearch to be populated..."
+sleep 3
 /opt/src/set_searchable_fields.sh
 /opt/src/run_test.sh "acer"
 

@@ -16,4 +16,7 @@ done
 # Run scripts
 /opt/src/populate_search.sh
 /opt/src/set_searchable_fields.sh
-/opt/src/run_test.sh
+/opt/src/run_test.sh "acer"
+
+# Keep the container running
+exec "$@"

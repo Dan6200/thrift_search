@@ -11,9 +11,6 @@ COPY ./test/query.sh	/opt/src/run_test.sh
 # Ensure the scripts are executable
 RUN chmod +x /opt/src/*.sh
 
-# Execute the data fetching script
-RUN /opt/src/fetch_products.sh
-
 # Stage 2: MeiliSearch service
 FROM getmeili/meilisearch:latest
 EXPOSE 7700
@@ -27,6 +24,8 @@ RUN chmod +x /opt/src/*.sh
 # Copy the entrypoint script to /usr/local/bin
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
+
+RUN ls -la /usr/local/bin |grep entrypoint
 
 # Use the entrypoint script to start MeiliSearch and then run scripts
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

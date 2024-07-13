@@ -10,6 +10,9 @@ while ! curl -s http://localhost:7700/health | grep '"status":"available"'; do
 	sleep 2
 done
 
+# Execute the data fetching script
+RUN /opt/src/fetch_products.sh
+
 # Run scripts
 /opt/src/populate_search.sh
 /opt/src/set_searchable_fields.sh

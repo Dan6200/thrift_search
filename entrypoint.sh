@@ -15,6 +15,7 @@ done
 
 # Run scripts
 /opt/src/populate_search.sh
+sleep 2
 /opt/src/set_searchable_fields.sh
 /opt/src/run_test.sh "acer"
 

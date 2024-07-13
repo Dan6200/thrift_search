@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 # Start Meilisearch in the background
-meilisearch --env production &
+meilisearch --master-key $API_KEY &
 
 # Wait for meilisearch to be ready
 
@@ -11,7 +11,7 @@ while ! curl -s http://localhost:7700/health | grep '"status":"available"'; do
 done
 
 # Execute the data fetching script
-RUN /opt/src/fetch_products.sh
+/opt/src/fetch_products.sh
 
 # Run scripts
 /opt/src/populate_search.sh

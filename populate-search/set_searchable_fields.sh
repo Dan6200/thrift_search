@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 curl \
--X POST "http://localhost:7700/indexes/products/settings/searchable-attributes" \
+-X PUT "http://localhost:7700/indexes/products/settings/searchable-attributes" \
 -H 'Content-Type: application/json' \
+-H "Authorization: Bearer $API_KEY" \
 --data-binary '["title","description"]'

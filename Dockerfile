@@ -25,8 +25,8 @@ RUN chmod +x /opt/src/*.sh
 COPY entrypoint.sh /opt/src/entrypoint.sh
 RUN chmod +x /opt/src/entrypoint.sh
 
-# Use the entrypoint script to start MeiliSearch and then run scripts
-ENTRYPOINT ["/opt/src/entrypoint.sh"]
+# start the script to start MeiliSearch and then run the other scripts
+RUN ./opt/src/entrypoint.sh
 
 # Default command for MeiliSearch
 CMD ["--env", "production"]

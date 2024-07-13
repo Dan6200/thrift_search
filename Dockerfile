@@ -22,13 +22,11 @@ COPY --from=data-fetcher /opt/src /opt/src
 RUN chmod +x /opt/src/*.sh
 
 # Copy the entrypoint script to /usr/local/bin
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
-RUN ls -la /usr/local/bin |grep entrypoint
+COPY entrypoint.sh /opt/src/entrypoint.sh
+RUN chmod +x /opt/src/entrypoint.sh
 
 # Use the entrypoint script to start MeiliSearch and then run scripts
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/opt/src/entrypoint.sh"]
 
 # Default command for MeiliSearch
 CMD ["--env", "production"]
